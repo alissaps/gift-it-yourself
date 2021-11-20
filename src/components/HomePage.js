@@ -1,6 +1,6 @@
 function HomePage() {
     return (
-        <h2>HomePage</h2>
+        <h2>HomePage - Initial commit</h2>
     )
 }
 
