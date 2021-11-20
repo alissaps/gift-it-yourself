@@ -1,21 +1,57 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+}
+
+.homepage {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-evenly;
+
+}
+
+#main-text {
+    width: 400px;
+}
+
 h1 {
-    font-size: 3.9rem;
+    font-size: 5rem;
     font-family: 'Abril Fatface', cursive;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .red-text {
-    font-size: 5rem;
+    font-size: 7rem;
     color: #C61B0D;
+}
+
+.img {
+    width: 290px;
+    position: relative;
+}
+
+#main-img {
+    position: relative;
 }
 
 .black-line {
     border: 1px #1E1E1E solid;
-    width: 273px;
-    height: 364px;
+    width: 290px;
+    height: 380px;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.btn {
+    padding: 10px 20px;
 }
 
 .text {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 1.7rem;
 }
