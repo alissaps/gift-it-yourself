@@ -8,7 +8,7 @@ function HomePage() {
     <>
       <main className="homepage">
         <section id="main-text">
-          <img className="red-line text-position" src={redLineImg} />
+          <img className="red-line text-position" src={redLineImg} alt="red line"/>
           <h1 className="pb-3">
             Have <span className="red-text">gift</span> ideas for this{" "}
             <span className="red-text">Xmas</span>
@@ -28,7 +28,7 @@ function HomePage() {
         <section id="main-img">
           <div className="black-line"></div>
           <img className="img" src={homepageImg} alt="gift-wrapped" />
-          <img className="red-line image-position" src={redLineImg} />
+          <img className="red-line image-position" src={redLineImg} alt="red line"/>
         </section>
       </main>
     </>
