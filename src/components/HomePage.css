@@ -1,0 +1,21 @@
+h1 {
+    font-size: 3.9rem;
+    font-family: 'Abril Fatface', cursive;
+    line-height: 1.1;
+}
+
+.red-text {
+    font-size: 5rem;
+    color: #C61B0D;
+}
+
+.black-line {
+    border: 1px #1E1E1E solid;
+    width: 273px;
+    height: 364px;
+}
+
+.text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
