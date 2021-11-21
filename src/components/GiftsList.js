@@ -1,33 +1,42 @@
 import "./GiftsList.css";
-// import { Link } from 'react-router-dom'
-// import axios from 'axios';
-// import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function GiftsList() {
+  const [gift, setGift] = useState([]);
 
-
-
-
-
-
-
+  useEffect(() => {
+    axios
+      .get("https://ironrest.herokuapp.com/gift")
+      .then((response) => {
+        setGift([...response.data]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="container">
-      <section className="content">
-        <img
-          src="https://images.unsplash.com/photo-1536329583941-14287ec6fc4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-          alt=""
-        />
-        <div className="content-text">
-          <h2 className="mt-1">Notebook</h2>
-          <p className="text-description">
-            Craft notebook for you to gift your friends and family. It's
-            super easy and fun to make
-          </p>
-          <p className="text-bold">Price: $$$ <br/> Skill Level: Beginner </p>
-        </div>
-      </section>
+      {gift.map((currentGift) => {
+        return (
+          <section key={currentGift._id} className="content">
+            <img className="content-img" src={currentGift.imageUrl} alt="Current Gift" />
+            <div className="content-text">
+                <Link className="text-decoration-none" to="/giftdetails">
+              <h2 className="mt-1">{currentGift.title}</h2>
+              </Link>
+              <p className="text-description">
+                {currentGift.description}
+              </p>
+              <p className="text-bold">
+                Price: {currentGift.price.replace(`${currentGift.price}`, '$')} <br /> Skill Level: {currentGift.skillLevel}
+              </p>
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }
