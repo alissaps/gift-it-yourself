@@ -1,0 +1,42 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+ }
+
+ .nav-font {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+ }
+
+ .nav-font li a{
+   padding: 10px 20px;
+}
+
+.nav-menu {
+    width: 100vw;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ 
+ .nav-menu li a {
+   font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    list-style: none;
+    font-size: 2rem;
+    color: #1A1A1A;
+    text-decoration: none;
+ }
+
+ .nav-menu li a:hover {
+   color: yellow;
+}
+
+ li {
+    list-style-type: none;
+}
+
