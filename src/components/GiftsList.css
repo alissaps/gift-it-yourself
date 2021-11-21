@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+img {
+    width: 250px;
+    border-radius: 0 15px 0 0;
+}
+.content {
+    width: 250px;
+    height: 300px;
+}
+h2 {
+    font-size: 3rem;
+    font-family: "Abril Fatface", cursive;
+    line-height: 1;
+    position: relative;
+}
+
+.content-text {
+    border: 1px solid;
+    border-color: transparent #DDDDDD #DDDDDD #DDDDDD;
+    border-radius: 0 0 0 15px;
+    padding: 10px;
+
+}
+
+.text-description {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+}
+
+.text-bold {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
