@@ -6,15 +6,23 @@
 }
 
 .content-img {
-    width: 250px;
+    width: 248px;
     height: 200px;
-    border-radius: 0 15px 0 0;
+    border-radius: 15px 15px 0 0;
     object-fit: cover;
 }
 
 .content {
-    width: 250px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    height: 390px;
+    text-align: center;
+    border: 1px solid;
+    border-color: transparent #DDDDDD #DDDDDD #DDDDDD;
+    border-radius: 15px;
+    margin: 20px;
+    
 }
 
 h2 {
@@ -26,11 +34,13 @@ h2 {
 }
 
 .content-text {
-    border: 1px solid;
-    border-color: transparent #DDDDDD #DDDDDD #DDDDDD;
-    border-radius: 0 0 0 15px;
     padding: 10px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 190px;
+    
 }
 
 .text-description {

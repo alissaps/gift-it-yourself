@@ -21,7 +21,7 @@ function GiftsList() {
     <div className="container">
       {gift.map((currentGift) => {
         return (
-          <section key={currentGift._id} className="content">
+          <article key={currentGift._id} className="content">
             <img className="content-img" src={currentGift.imageUrl} alt="Current Gift" />
             <div className="content-text">
                 <Link className="text-decoration-none" to="/giftdetails">
@@ -34,7 +34,7 @@ function GiftsList() {
                 Price: {currentGift.price.replace(`${currentGift.price}`, '$')} <br /> Skill Level: {currentGift.skillLevel}
               </p>
             </div>
-          </section>
+          </article>
         );
       })}
     </div>
