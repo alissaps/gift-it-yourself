@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.content-img {
+    width: 248px;
+    height: 200px;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    height: 390px;
+    text-align: center;
+    border: 1px solid;
+    border-color: transparent #DDDDDD #DDDDDD #DDDDDD;
+    border-radius: 15px;
+    margin: 20px;
+    
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: "Abril Fatface", cursive;
+    line-height: 1;
+    position: relative;
+    color: #231C06;
+}
+
+.content-text {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 190px;
+    
+}
+
+.text-description {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+}
+
+.text-bold {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
