@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Loading from "./Loading";
 
-
 function GiftsList() {
   const [gift, setGift] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,12 +23,12 @@ function GiftsList() {
 
   return (
     <>
-      {loading ? 
-        <Loading/>
-       : (
+      {loading ? (
+        <Loading />
+      ) : (
         <>
           <Navbar />
-          <div className="container">
+          <div className="container pt-5">
             {gift.map((currentGift) => {
               return (
                 <article key={currentGift._id} className="content">
