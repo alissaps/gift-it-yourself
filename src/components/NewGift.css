@@ -1,28 +1,35 @@
 .boxForm {
-    border: 2px solid red;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
-
-.imgForms img {
-    border: 2px solid green;
-    width: 290px;
-}
-
 
 .forms {
-    
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
 }
 
-.forms input, textarea, select {
-    border: 2px solid rgb(181, 181, 182);
-    border-radius: 8px;
-    height: 30px;
-    padding: 7px 20px;
-    margin: 10px 0;
+.forms input,
+textarea,
+select {
+  border: 2px solid rgb(181, 181, 182);
+  border-radius: 8px;
+  height: 30px;
+  padding: 7px 20px;
+  margin: 10px 0;
+}
+
+#newgift-img {
+  position: relative;
+}
+
+.newgift-black-line {
+  border: 1px #1e1e1e solid;
+  width: 290px;
+  height: 430px;
+  position: absolute;
+  top: -15px;
+  left: -15px;
 }

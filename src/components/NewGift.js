@@ -5,6 +5,10 @@ import axios from "axios";
 import React from "react";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
+import redLineImg from "./assets/red-line.png";
+
+
+
 
 function Forms() {
   const navigate = useNavigate();
@@ -39,11 +43,13 @@ function Forms() {
   return (
     <div>
       <Navbar />
-      <h1>New Gift</h1>
+      <h1 className="mt-5">New Gift</h1>
 
-      <div className="boxForm">
-        <div className="imgForms">
-          <img src={newGiftImg} alt="new-gift" />
+      <div className="boxForm mt-5">
+        <div id="newgift-img">
+            <div className="newgift-black-line"> </div>
+          <img className="img" src={newGiftImg} alt="new-gift" />
+          <img className="red-line image-position" alt="redline" src={redLineImg} />
         </div>
 
         <form className="forms">
