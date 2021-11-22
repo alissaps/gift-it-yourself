@@ -46,7 +46,7 @@ function GiftsList() {
                     </p>
                     <p className="text-bold">
                       Price:{" "}
-                      {currentGift.price.replace(`${currentGift.price}`, "$")}{" "}
+                      {"$".repeat(Number(currentGift.price))}{" "}
                       <br /> Skill Level: {currentGift.skillLevel}
                     </p>
                   </div>

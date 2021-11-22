@@ -1,4 +1,4 @@
-import "./NewGift.css"
+import "./NewGift.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,9 +6,6 @@ import React from "react";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
 import redLineImg from "./assets/red-line.png";
-
-
-
 
 function Forms() {
   const navigate = useNavigate();
@@ -34,7 +31,7 @@ function Forms() {
 
     try {
       await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
-      navigate("/");
+      navigate("/giftslist");
     } catch (error) {
       console.error(error.response.data);
     }
@@ -47,9 +44,13 @@ function Forms() {
 
       <div className="boxForm mt-5">
         <div id="newgift-img">
-            <div className="newgift-black-line"> </div>
+          <div className="newgift-black-line"> </div>
           <img className="img" src={newGiftImg} alt="new-gift" />
-          <img className="red-line image-position" alt="redline" src={redLineImg} />
+          <img
+            className="red-line image-position"
+            alt="redline"
+            src={redLineImg}
+          />
         </div>
 
         <form className="forms">
@@ -61,6 +62,7 @@ function Forms() {
             name="title"
             placeholder="Title"
             maxlength="20"
+            required="required"
           />
 
           <input
@@ -70,7 +72,7 @@ function Forms() {
             onChange={handleChange}
             name="description"
             placeholder="Description"
-            maxlength="140"
+            maxlength="70"
           />
 
           <select
@@ -80,9 +82,10 @@ function Forms() {
             type="text"
             onChange={handleChange}
             name="skillLevel"
-            placeholder="Skill Level"
           >
-            <option>Skill Level</option>
+            <option value="" disabled selected hidden>
+              Skill Level
+            </option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Advanced">Advanced</option>
@@ -95,9 +98,10 @@ function Forms() {
             type="text"
             onChange={handleChange}
             name="price"
-            placeholder="Price"
           >
-            <option>Price</option>
+            <option value="" disabled selected hidden>
+              Price
+            </option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -133,11 +137,11 @@ function Forms() {
           />
 
           <button
-            className="text btn btn-dark rounded-pill"
+            className="form-btn text btn btn-dark rounded-pill"
             type="submit"
             onClick={handleSubmit}
           >
-            ADD NEW GIFT
+            Add new gift
           </button>
         </form>
       </div>
