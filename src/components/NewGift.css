@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
-  }
-
+  align-items: center;
+  min-height: 80vh;
+}
+ 
 .forms {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
+  width: 400px;
   align-items: center;
   }
 
@@ -21,6 +23,8 @@ select {
   padding: 7px 20px;
   margin: 8px 0;
   width: 350px;
+  font-size: 1.5rem;
+  color: #757575;
 }
 
 #newgift-img {
@@ -36,22 +40,15 @@ select {
   left: -15px;
 }
 
-
-
 textarea {
-    height: 65px;
+    height: 100px;
     overflow: hidden;
     resize: none;
-}
-
-.form-btn {
-    width: 200px;
-    height: 50px;
-    align-items: center;
+    overflow-y: scroll;
 }
 
 .form-image-position {
-  bottom: 35px;
+  bottom: -20px;
   transform: rotate(0deg);
   right: -25px;
 }

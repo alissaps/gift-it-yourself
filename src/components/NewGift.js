@@ -40,9 +40,9 @@ function Forms() {
   return (
     <div>
       <Navbar />
-      <h1 className="mt-5">New Gift</h1>
 
       <div className="boxForm mt-5">
+
         <div id="newgift-img">
           <div className="newgift-black-line"> </div>
           <img className="img" src={newGiftImg} alt="new-gift" />
@@ -54,6 +54,7 @@ function Forms() {
         </div>
 
         <form className="forms">
+          <h1 className="mt-5 mb-4">New Gift</h1>
           <input
             required
             id="title"
@@ -143,7 +144,7 @@ function Forms() {
           />
 
           <button
-            className="form-btn col text-center text btn btn-dark rounded-pill"
+            className="mt-3 text-center text btn-effect btn btn-dark rounded-pill"
             type="submit"
             onClick={handleSubmit}
           >

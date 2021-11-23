@@ -2,64 +2,51 @@ import homepageImg from "./assets/homepage.jpeg";
 import redLineImg from "./assets/red-line.png";
 import "./HomePage.css";
 import Navbar from "./Navbar";
-import Loading from "./Loading";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 function HomePage() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <> 
-          <Navbar />
-          <main className="homepage">
-            <section id="main-text">
-              <img
-                className="red-line text-position"
-                src={redLineImg}
-                alt="red line"
-              />
-              <h1 className="pb-3">
-                Have <span className="red-text">gift</span> ideas for this{" "}
-                <span className="red-text">Xmas</span>
-              </h1>
-              <p className="text pb-3">
-                put a little of yourself in your gifts. here you will find great
-                ideas for gifting your loved ones in a creative and different
-                way. try to get your hands dirty and be amazed. gift it
-                yourself!
-              </p>
-              <Link to="/giftslist">
-                <button
-                  type="button"
-                  className="text btn-effect btn btn-dark rounded-pill"
-                >
-                  click here
-                </button>
-              </Link>
-            </section>
+    
+      <>
+        <Navbar />
+        <main className="homepage">
+          <section id="main-text">
+            <img
+              className="red-line text-position"
+              src={redLineImg}
+              alt="red line"
+            />
+            <h1 className="pb-3">
+              Have <span className="red-text">gift</span> ideas for this{" "}
+              <span className="red-text">Xmas</span>
+            </h1>
+            <p className="text pb-3">
+              put a little of yourself in your gifts. here you will find great
+              ideas for gifting your loved ones in a creative and different way.
+              try to get your hands dirty and be amazed. gift it yourself!
+            </p>
+            <Link to="/giftslist">
+              <button
+                type="button"
+                className="text btn-effect btn btn-dark rounded-pill"
+              >
+                click here
+              </button>
+            </Link>
+          </section>
 
-            <section id="main-img">
-              <div className="black-line"></div>
-              <img className="img" src={homepageImg} alt="gift-wrapped" />
-              <img
-                className="red-line image-position"
-                src={redLineImg}
-                alt="red line"
-              />
-            </section>
-          </main>
-        </>
-      )}
-    </>
+          <section id="main-img">
+            <div className="black-line"></div>
+            <img className="img" src={homepageImg} alt="gift-wrapped" />
+            <img
+              className="red-line image-position"
+              src={redLineImg}
+              alt="red line"
+            />
+          </section>
+        </main>
+      </>
+    
   );
 }
 
