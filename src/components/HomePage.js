@@ -18,7 +18,7 @@ function HomePage() {
       {loading ? (
         <Loading />
       ) : (
-        <>
+        <> 
           <Navbar />
           <main className="homepage">
             <section id="main-text">
@@ -40,7 +40,7 @@ function HomePage() {
               <Link to="/giftslist">
                 <button
                   type="button"
-                  className="text btn btn-dark rounded-pill"
+                  className="text btn-effect btn btn-dark rounded-pill"
                 >
                   click here
                 </button>

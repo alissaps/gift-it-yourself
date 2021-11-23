@@ -54,3 +54,7 @@
    width: 100%;
 }
 
+.btn-effect:hover {
+   background: rgb(65, 65, 65);
+ }
+

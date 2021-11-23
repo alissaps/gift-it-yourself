@@ -21,7 +21,7 @@ function Navbar() {
           </li>
         </ul>
         <Link to="/contact">
-          <button type="button" className="text btn btn-dark rounded-pill">
+          <button type="button" className="text btn-effect btn btn-dark rounded-pill">
             Contact us
           </button>
         </Link>

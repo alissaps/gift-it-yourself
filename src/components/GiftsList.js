@@ -28,6 +28,7 @@ function GiftsList() {
       ) : (
         <>
           <Navbar />
+          <h1 className="mt-5 ">Gifts</h1>
           <div className="container pt-5">
             {gift.map((currentGift) => {
               return (
