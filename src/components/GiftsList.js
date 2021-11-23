@@ -39,7 +39,7 @@ function GiftsList() {
                     alt="Current Gift"
                   />
                   <div className="content-text">
-                    <Link className="text-decoration-none" to="/giftdetails">
+                    <Link className="text-decoration-none" to={`/giftdetails/${currentGift._id}`}>
                       <h2 className="text-effect mt-1">{currentGift.title}</h2>
                     </Link>
                     <p className="text-description">

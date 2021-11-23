@@ -14,8 +14,8 @@ function Forms() {
     description: "",
     skillLevel: "",
     price: "",
-    supplies: "",
-    instructions: "",
+    supplies: [],
+    instructions: [],
     imageUrl: "",
   });
 
@@ -28,6 +28,9 @@ function Forms() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    newGifts["supplies"] = newGifts["supplies"].split("\n");
+    newGifts["instructions"] = newGifts["instructions"].split("\n");
 
     try {
       await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
