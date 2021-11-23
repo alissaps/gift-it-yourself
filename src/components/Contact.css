@@ -1,0 +1,49 @@
+.contact-section div img {
+  height: 45px;
+  margin: 10px 5px;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+  justify-content: space-evenly;
+}
+
+.link-effect {
+  transition: 0.1s ease;
+  border: 0;
+}
+
+.link-effect:hover ~ .first-contact {
+  color: #c61b0d;
+}
+
+.link-effect:hover ~ .second-contact {
+  color: #c61b0d;
+}
+
+#first-contact,
+#second-contact {
+  position: relative;
+}
+
+.first-contact-red-line {
+  width: 80px;
+  transform: rotate(-15deg);
+  position: absolute;
+  top: -50px;
+  left: -85px;
+}
+
+.second-contact-red-line {
+  width: 80px;
+  transform: rotate(165deg);
+  position: absolute;
+  bottom: -50px;
+  right: -85px;
+}
+
+section h2 {
+    font-size: 4rem;
+}

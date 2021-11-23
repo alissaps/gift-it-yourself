@@ -4,6 +4,8 @@ import HomePage from './HomePage';
 import GiftsList from './GiftsList';
 import RandomMessage from './RandomMessage';
 import NewGift from "./NewGift";
+import Contact from './Contact';
+
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
       <Route path="/random" element={<RandomMessage/>}  />
       <Route path="/newgifts" element={<NewGift />} />
 
-        
+      <Route path="/contact" element={<Contact/>}  />
       </Routes>
     </div>
   );

@@ -28,6 +28,7 @@ function GiftsList() {
       ) : (
         <>
           <Navbar />
+          <h1 className="mt-5">Gifts</h1>
           <div className="container pt-5">
             {gift.map((currentGift) => {
               return (
@@ -39,7 +40,7 @@ function GiftsList() {
                   />
                   <div className="content-text">
                     <Link className="text-decoration-none" to="/giftdetails">
-                      <h2 className="mt-1">{currentGift.title}</h2>
+                      <h2 className="text-effect mt-1">{currentGift.title}</h2>
                     </Link>
                     <p className="text-description">
                       {currentGift.description}
