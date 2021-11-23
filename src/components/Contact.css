@@ -1,0 +1,11 @@
+.contact-section div img {
+    height: 45px;
+    margin: 10px 5px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    min-height: 50vh;
+    justify-content: space-evenly;
+}
