@@ -38,7 +38,7 @@ useEffect(() => {
     async function handleDelete(id) {
         try {
           await axios.delete(`https://ironrest.herokuapp.com/gift/${id}`);
-          navigate("/giftslist")
+          navigate("/giftslist");
         } catch (err) {
           console.error(err);
         }
@@ -77,8 +77,8 @@ useEffect(() => {
         <section id="supplies-container">
           <h3>Supplies</h3>
           <ul>
-          {giftData.supplies.map((currentSupply) => {
-              return <li key={currentSupply} className="mt-4 text-description">{currentSupply}</li>
+          {giftData.supplies.map((currentSupply, index) => {
+              return <li key={index} className="mt-4 text-description">{currentSupply}</li>
           })}
          </ul>
         </section>
@@ -88,8 +88,8 @@ useEffect(() => {
         <section className="mb-5" id="instructions-container">
           <h3>Instructions</h3>
           <ol>
-          {giftData.instructions.map((currentInstruction) => {
-              return <li key={currentInstruction} className="mt-4 text-description">{currentInstruction}</li>
+          {giftData.instructions.map((currentInstruction, index) => {
+              return <li key={index} className="mt-4 text-description">{currentInstruction}</li>
           })}
          </ol>
         </section>
