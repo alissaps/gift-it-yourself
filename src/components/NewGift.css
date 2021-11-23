@@ -7,7 +7,9 @@
 .forms {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 300px;
+  align-items: center;
   }
 
 .forms input,
@@ -15,9 +17,10 @@ textarea,
 select {
   border: 2px solid rgb(181, 181, 182);
   border-radius: 8px;
-  height: 30px;
+  height: 40px;
   padding: 7px 20px;
   margin: 8px 0;
+  width: 350px;
 }
 
 #newgift-img {
@@ -45,4 +48,10 @@ textarea {
     width: 200px;
     height: 50px;
     align-items: center;
+}
+
+.form-image-position {
+  bottom: 35px;
+  transform: rotate(0deg);
+  right: -25px;
 }

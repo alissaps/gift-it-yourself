@@ -47,7 +47,7 @@ function Forms() {
           <div className="newgift-black-line"> </div>
           <img className="img" src={newGiftImg} alt="new-gift" />
           <img
-            className="red-line image-position"
+            className="red-line form-image-position"
             alt="redline"
             src={redLineImg}
           />
@@ -55,6 +55,7 @@ function Forms() {
 
         <form className="forms">
           <input
+            required
             id="title"
             value={newGifts.title}
             type="text"
@@ -62,13 +63,13 @@ function Forms() {
             name="title"
             placeholder="Title"
             maxlength="20"
-            required="required"
           />
 
           <input
+            required
             id="description"
             value={newGifts.description}
-            type="text"
+            type="text "
             onChange={handleChange}
             name="description"
             placeholder="Description"
@@ -76,6 +77,7 @@ function Forms() {
           />
 
           <select
+            required
             htmlFor="skillLevel"
             id="skill_level"
             value={newGifts.skillLevel}
@@ -92,6 +94,7 @@ function Forms() {
           </select>
 
           <select
+            required
             htmlFor="price"
             id="price"
             value={newGifts.price}
@@ -110,6 +113,7 @@ function Forms() {
           </select>
 
           <textarea
+            required
             id="supplies"
             value={newGifts.supplies}
             type="text"
@@ -119,6 +123,7 @@ function Forms() {
           />
 
           <textarea
+            required
             id="instructions"
             value={newGifts.instructions}
             type="text"
@@ -128,6 +133,7 @@ function Forms() {
           />
 
           <input
+            required
             id="imageUrl"
             value={newGifts.imageUrl}
             type="text"
@@ -137,7 +143,7 @@ function Forms() {
           />
 
           <button
-            className="form-btn text btn btn-dark rounded-pill"
+            className="form-btn col text-center text btn btn-dark rounded-pill"
             type="submit"
             onClick={handleSubmit}
           >
