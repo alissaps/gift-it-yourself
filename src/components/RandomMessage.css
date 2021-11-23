@@ -47,8 +47,13 @@ h1 {
   left: 15px;
 }
 
-.btn {
-  padding: 10px 20px;
+.btn-effect {
+  transition: 0.3s ease;
+  border: 0;
+}
+
+.btn-effect:hover {
+  background: #c61b0d;
 }
 
 .text {
@@ -57,19 +62,20 @@ h1 {
   font-size: 1.7rem;
 }
 
-/* .red-line {
-    width: 80px;
-    transform: rotate(95deg);
-    position: absolute;
-} */
-
 .random-text-position {
-    top: -30px;
-    right: -27px;
+    top: -60px;
+    right: -60px;
 }
 
 .random-image-position {
     bottom: -24px;
     transform: rotate(90deg);
     left: -25px;
+}
+
+.cursive {
+  font-family: 'Handlee', cursive;
+  font-size: 2.9rem;
+  text-align:center;
+  
 }

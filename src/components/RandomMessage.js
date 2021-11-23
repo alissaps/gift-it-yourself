@@ -1,58 +1,78 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import redLineImg from "./assets/red-line.png";
 import randomImg from "./assets/message-img.jpeg";
 import "./RandomMessage.css";
 import Navbar from "./Navbar";
-import Loading from "./Loading";
+import axios from "axios";
+
 
 function RandomMessage() {
-  const [loading, setLoading] = useState(true);
+  const [messageData, setMessageData] = useState([]);
+  const [click, setClick] = useState(false);
+  const [currentMessage, setCurrentMessage] = useState("");
+
 
   useEffect(() => {
-    setLoading(false);
+    axios
+      .get(`https://ironrest.herokuapp.com/random-message`)
+      .then((response) => {
+        setMessageData([...response.data]);
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
+  function handleClick() {
+    setClick(true);
+    console.log(messageData, messageData.messages);
+    setCurrentMessage(
+      messageData[0].messages[
+        Math.round(Math.random() * (messageData[0].messages.length - 1))
+      ]
+    );
+  }
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <Navbar />
-          <div className="random">
-            <section id="main-img">
-              <div className="random-black-line"></div>
-              <img className="random-img" src={randomImg} alt="gift-wrapped" />
-              <img
-                className="red-line random-image-position"
-                src={redLineImg}
-                alt="red line"
-              />
-            </section>
+      <Navbar />
+      <div className="random">
+        <section id="main-img">
+          <div className="random-black-line"></div>
+          <img className="random-img" src={randomImg} alt="gift-wrapped" />
+          <img
+            className="red-line random-image-position"
+            src={redLineImg}
+            alt="red line"
+          />
+        </section>
 
-            <section id="main-text">
-              <img
-                className="red-line random-text-position"
-                src={redLineImg}
-                alt="red line"
-              />
-              <h1 className="pb-4">
-                Having trouble writing a cool{" "}
-                <span className="red-text">message?</span>
-              </h1>
-              <Link to="/giftslist">
-                <button
-                  type="button"
-                  className="text btn btn-dark rounded-pill"
-                >
-                  click here to generate a fresh message!
-                </button>
-              </Link>
-            </section>
-          </div>
-        </>
-      )}
+        <section id="main-text">
+          <img
+            className="red-line random-text-position"
+            src={redLineImg}
+            alt="red line"
+          />
+          {click ? (
+            <p className="cursive"> {currentMessage} </p>
+          ) : (
+            <h1 className="pb-4">
+              Having trouble writing a cool{" "}
+              <span className="red-text">message?</span>
+            </h1>
+          )}
+
+          <button
+            onClick={handleClick}
+            type="button"
+            className="mt-3 text btn-effect btn btn-dark rounded-pill"
+          >
+            click here to generate a fresh message!
+          </button>
+        </section>
+      </div>
     </>
   );
 }
