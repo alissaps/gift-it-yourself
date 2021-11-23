@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import deleteImg from "./assets/delete-icon.png";
 import editImg from "./assets/edit-icon.png";
 import "./GiftDetails.css";
+import { Link } from "react-router-dom";
 
 function GiftDetails() {
+    const navigate = useNavigate();
   const [giftData, setGiftData] = useState({
     "_id": "",
     "title": "",
@@ -20,18 +23,6 @@ function GiftDetails() {
   });
   const params = useParams();
 
-//   useEffect(() => {
-//     axios
-//       .get(`https://ironrest.herokuapp.com/gift/${params.id}`)
-//       .then((response) => {
-//         setGiftData(response.data);
-//         console.log(response.data, giftData)
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }, []);
-
 useEffect(() => {
     async function fetchGift () {
     try {
@@ -44,14 +35,28 @@ useEffect(() => {
     fetchGift ()
     }, [])
 
+    async function handleDelete(id) {
+        try {
+          await axios.delete(`https://ironrest.herokuapp.com/gift/${id}`);
+          navigate("/giftslist")
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
 
   return (
     <>
       <Navbar />
       <main className="mt-5 gift-container">
         <div className="icons">
-          <img src={editImg} alt="edit" />
-          <img src={deleteImg} alt="delete" />
+        <Link to={`/editgift/${giftData._id}`}>
+          <img type="button" src={editImg} alt="edit" />
+        </Link>
+
+        <Link to={`/editgift/${giftData._id}`}>
+          <img type="button" onClick={() => handleDelete(giftData._id)} src={deleteImg} alt="delete" />
+        </Link>
         </div>
 
         <section className="mt-5 d-flex align-items-center flex-column" id="gift-detail">
