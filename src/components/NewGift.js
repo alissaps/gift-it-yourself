@@ -14,8 +14,8 @@ function Forms() {
     description: "",
     skillLevel: "",
     price: "",
-    supplies: "",
-    instructions: "",
+    supplies: [],
+    instructions: [],
     imageUrl: "",
   });
 
@@ -28,6 +28,9 @@ function Forms() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    newGifts["supplies"] = newGifts["supplies"].split("\n");
+    newGifts["instructions"] = newGifts["instructions"].split("\n");
 
     try {
       await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
@@ -63,7 +66,7 @@ function Forms() {
             onChange={handleChange}
             name="title"
             placeholder="Title"
-            maxlength="20"
+            maxLength="20"
           />
 
           <input
@@ -74,7 +77,7 @@ function Forms() {
             onChange={handleChange}
             name="description"
             placeholder="Description"
-            maxlength="70"
+            maxLength="70"
           />
 
           <select
@@ -86,7 +89,7 @@ function Forms() {
             onChange={handleChange}
             name="skillLevel"
           >
-            <option value="" disabled selected hidden>
+            <option value="" disabled defaultValue hidden>
               Skill Level
             </option>
             <option value="Beginner">Beginner</option>
@@ -103,7 +106,7 @@ function Forms() {
             onChange={handleChange}
             name="price"
           >
-            <option value="" disabled selected hidden>
+            <option value="" disabled defaultValue hidden>
               Price
             </option>
             <option value="1">1</option>
