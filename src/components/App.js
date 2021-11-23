@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 import GiftsList from './GiftsList';
 import RandomMessage from './RandomMessage';
+import Contact from './Contact';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Route path="/giftslist" element={<GiftsList/>}  />
       <Route path="/random" element={<RandomMessage/>}  />
 
-        
+      <Route path="/contact" element={<Contact/>}  />
       </Routes>
     </div>
   );
