@@ -56,10 +56,19 @@ function EditGift() {
 
     setnewGifts({
       ...newGifts,
-      supplies: [...newGifts.supplies],
-      instructions: [...newGifts.instructions],
+      supplies: newGifts.supplies,
+      instructions: newGifts.instructions,
     });
-    if (newGifts.title === "" || newGifts.description === "" || newGifts.skillLevel === "" || newGifts.price === "" || newGifts.supplies.length === 0 || newGifts.instructions.length === 0 || newGifts.imageUrl === "") {
+
+    if (
+      newGifts.title === "" ||
+      newGifts.description === "" ||
+      newGifts.skillLevel === "" ||
+      newGifts.price === "" ||
+      newGifts.supplies === "" ||
+      newGifts.instructions === "" ||
+      newGifts.imageUrl === ""
+    ) {
       toast.error("Please fill up all fields");
       return;
     } else {
@@ -68,11 +77,23 @@ function EditGift() {
     }
 
     try {
-      await axios.put(
-        `https://ironrest.herokuapp.com/gift/${params.id}`,
-        newGifts
-      );
-      navigate("/giftslist");
+      if (
+        newGifts.title !== "" &&
+        newGifts.description !== "" &&
+        newGifts.skillLevel !== "" &&
+        newGifts.price !== "" &&
+        newGifts.supplies !== "" &&
+        newGifts.instructions !== "" &&
+        newGifts.imageUrl !== ""
+      ) {
+        await axios.put(
+          `https://ironrest.herokuapp.com/gift/${params.id}`,
+          newGifts
+        );
+        navigate("/giftslist");
+      }
+
+
     } catch (error) {
       console.error(error.response.data);
     }
@@ -198,14 +219,13 @@ function EditGift() {
         containerClassName=""
         containerStyle={{}}
         toastOptions={{
-          
           className: "",
           duration: 5000,
           style: {
             background: "#363636",
             color: "#fff",
           },
-          
+
           success: {
             duration: 3000,
             theme: {
