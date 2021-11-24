@@ -6,6 +6,7 @@ import RandomMessage from './RandomMessage';
 import NewGift from "./NewGift";
 import Contact from './Contact';
 import GiftDetails from './GiftDetails';
+import EditGift from './EditGift';
 
 
 
@@ -18,7 +19,7 @@ function App() {
       <Route path="/random" element={<RandomMessage/>}  />
       <Route path="/newgifts" element={<NewGift />} />
       <Route path="/giftdetails/:id" element={<GiftDetails/>}/>
-
+      <Route path="/editgift/:id" element={<EditGift/>}/>
       <Route path="/contact" element={<Contact/>}  />
       </Routes>
     </div>

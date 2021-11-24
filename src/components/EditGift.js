@@ -1,14 +1,17 @@
 import "./NewGift.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
 import redLineImg from "./assets/red-line.png";
 
-function Forms() {
+function EditGift() {
   const navigate = useNavigate();
+  const params = useParams();
+
   const [newGifts, setnewGifts] = useState({
+    _id: "",
     title: "",
     description: "",
     skillLevel: "",
@@ -16,7 +19,23 @@ function Forms() {
     supplies: [],
     instructions: [],
     imageUrl: "",
+    video: "",
   });
+
+  useEffect(() => {
+    async function fetchGift() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/gift/${params.id}`
+        );
+        delete response.data._id;
+        setnewGifts({ ...response.data });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchGift();
+  }, [params.id]);
 
   function handleChange(event) {
     setnewGifts({
@@ -28,11 +47,11 @@ function Forms() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    newGifts["supplies"] = newGifts["supplies"].split("\n");
-    newGifts["instructions"] = newGifts["instructions"].split("\n");
+    // newGifts["supplies"] = newGifts["supplies"].split("\n");
+    // newGifts["instructions"] = newGifts["instructions"].split("\n");
 
     try {
-      await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
+      await axios.put(`https://ironrest.herokuapp.com/gift/${params.id}`, newGifts);
       navigate("/giftslist");
     } catch (error) {
       console.error(error.response.data);
@@ -42,9 +61,7 @@ function Forms() {
   return (
     <div>
       <Navbar />
-
       <div className="boxForm mt-5">
-
         <div id="newgift-img">
           <div className="newgift-black-line"> </div>
           <img className="img" src={newGiftImg} alt="new-gift" />
@@ -158,4 +175,4 @@ function Forms() {
   );
 }
 
-export default Forms;
+export default EditGift;
