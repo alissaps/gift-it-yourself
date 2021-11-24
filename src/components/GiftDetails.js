@@ -7,9 +7,12 @@ import deleteImg from "./assets/delete-icon.png";
 import editImg from "./assets/edit-icon.png";
 import "./GiftDetails.css";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
+
 
 function GiftDetails() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
   const [giftData, setGiftData] = useState({
     "_id": "",
     "title": "",
@@ -28,6 +31,7 @@ useEffect(() => {
     try {
     const response = await axios.get(`https://ironrest.herokuapp.com/gift/${params.id}`); 
     setGiftData({...response.data})
+    setLoading(false);
     } catch(err) {
     console.log(err)}
     }
@@ -47,6 +51,8 @@ useEffect(() => {
 
   return (
     <>
+    {loading ? <Loading/> : (
+      <>
       <Navbar />
       <main className="mt-5 gift-container">
         <div className="icons">
@@ -64,11 +70,6 @@ useEffect(() => {
           <h2 className="mt-4">{giftData.title}</h2>
           <p className="mt-4 gift-text-description">
           {giftData.description}
-          </p>
-          <p className="text-bold bold">
-          Skill Level: {giftData.skillLevel}
-            <br />
-            Price: {"$".repeat(Number(giftData.price))}{" "}
           </p>
         </section>
 
@@ -94,6 +95,8 @@ useEffect(() => {
          </ol>
         </section>
       </main>
+    </>
+    )}
     </>
   );
 }

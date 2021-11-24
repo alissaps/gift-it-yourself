@@ -33,11 +33,13 @@ function GiftsList() {
             {gift.map((currentGift) => {
               return (
                 <article key={currentGift._id} className="content">
+                  <Link to={`/giftdetails/${currentGift._id}`}>
                   <img
                     className="content-img"
                     src={currentGift.imageUrl}
                     alt="Current Gift"
                   />
+                  </Link>
                   <div className="content-text">
                     <Link className="text-decoration-none" to={`/giftdetails/${currentGift._id}`}>
                       <h2 className="text-effect mt-1">{currentGift.title}</h2>

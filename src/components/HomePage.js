@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    
+     
       <>
         <Navbar />
         <main className="homepage">
@@ -21,9 +21,9 @@ function HomePage() {
               <span className="red-text">Xmas</span>
             </h1>
             <p className="text pb-3">
-              put a little of yourself in your gifts. here you will find great
+              Put a little of yourself in your gifts. Here you will find great
               ideas for gifting your loved ones in a creative and different way.
-              try to get your hands dirty and be amazed. gift it yourself!
+              Try to get your hands dirty and be amazed. Gift it yourself!
             </p>
             <Link to="/giftslist">
               <button

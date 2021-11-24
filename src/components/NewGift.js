@@ -44,8 +44,6 @@ function Forms() {
       newGifts["instructions"] = newGifts["instructions"].split("\n");
     }
 
-
-
     try {
       await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
       navigate("/giftslist");
@@ -55,7 +53,7 @@ function Forms() {
   }
 
   return (
-    <div>
+    <div className="mb-5">
       <Navbar />
 
       <div className="boxForm mt-5">
@@ -164,7 +162,7 @@ function Forms() {
             type="submit"
             onClick={handleSubmit}
           >
-            Add new gift
+            add new gift
           </button>
         </form>
       </div>

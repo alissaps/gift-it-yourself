@@ -4,7 +4,9 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <nav className="nav-bar">
-      <p className="nav-logo" to="/">Gift It Yourself</p>
+      <Link className="nav-logo" to="/">
+      <p className="nav-logo">Gift It Yourself</p>
+      </Link>
       <div className="nav-list">
         <ul>
           <li>

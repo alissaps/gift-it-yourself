@@ -62,7 +62,7 @@ function EditGift() {
 
 
   return (
-    <div>
+    <div className="mb-5">
       <Navbar />
       <div className="boxForm mt-5">
         <div id="newgift-img">

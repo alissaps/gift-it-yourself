@@ -4,12 +4,14 @@
   font-size: 10px;
   list-style: none;
 }
-
+ 
 .homepage {
   display: flex;
   align-items: center;
   min-height: 80vh;
   justify-content: space-evenly;
+  /* width: 1500px;
+  margin: 0 auto; */
 }
 
 #main-text {
