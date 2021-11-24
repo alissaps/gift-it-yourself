@@ -34,7 +34,7 @@ function Forms() {
       supplies: [...newGifts.supplies],
       instructions: [...newGifts.instructions],
     });
-
+ 
     if (newGifts.title === "" || newGifts.description === "" || newGifts.skillLevel === "" || newGifts.price === "" || newGifts.supplies.length === 0 || newGifts.instructions.length === 0 || newGifts.imageUrl === "") {
       toast.error("Please fill up all fields");
       return;

@@ -5,6 +5,7 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
 import redLineImg from "./assets/red-line.png";
+import toast, { Toaster } from "react-hot-toast";
 
 function EditGift() {
   const navigate = useNavigate();
@@ -29,7 +30,13 @@ function EditGift() {
           `https://ironrest.herokuapp.com/gift/${params.id}`
         );
         delete response.data._id;
-        setnewGifts({ ...response.data, supplies: response.data.supplies.toString().replace(/,/gm,"\n"), instructions: response.data.instructions.toString().replace(/,/gm,"\n") });
+        setnewGifts({
+          ...response.data,
+          supplies: response.data.supplies.toString().replace(/,/gm, "\n"),
+          instructions: response.data.instructions
+            .toString()
+            .replace(/,/gm, "\n"),
+        });
       } catch (err) {
         console.error(err);
       }
@@ -47,19 +54,29 @@ function EditGift() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    setnewGifts({...newGifts, supplies: [...newGifts.supplies], instructions: [...newGifts.instructions]});
-
-    newGifts["supplies"] = newGifts["supplies"].split("\n");
-    newGifts["instructions"] = newGifts["instructions"].split("\n");
+    setnewGifts({
+      ...newGifts,
+      supplies: [...newGifts.supplies],
+      instructions: [...newGifts.instructions],
+    });
+    if (newGifts.title === "" || newGifts.description === "" || newGifts.skillLevel === "" || newGifts.price === "" || newGifts.supplies.length === 0 || newGifts.instructions.length === 0 || newGifts.imageUrl === "") {
+      toast.error("Please fill up all fields");
+      return;
+    } else {
+      newGifts["supplies"] = newGifts["supplies"].split("\n");
+      newGifts["instructions"] = newGifts["instructions"].split("\n");
+    }
 
     try {
-      await axios.put(`https://ironrest.herokuapp.com/gift/${params.id}`, newGifts);
+      await axios.put(
+        `https://ironrest.herokuapp.com/gift/${params.id}`,
+        newGifts
+      );
       navigate("/giftslist");
     } catch (error) {
       console.error(error.response.data);
     }
   }
-
 
   return (
     <div className="mb-5">
@@ -174,6 +191,30 @@ function EditGift() {
           </button>
         </form>
       </div>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          
+          className: "",
+          duration: 5000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+          
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+        }}
+      />
     </div>
   );
 }
