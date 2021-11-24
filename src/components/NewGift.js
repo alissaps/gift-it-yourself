@@ -35,9 +35,8 @@ function Forms() {
       instructions: [...newGifts.instructions],
     });
 
-    if (newGifts.supplies.length === 0 || newGifts.instructions.length === 0) {
-      toast.error("Please fill up supplies and instructions field");
-      console.log("caiu no if");
+    if (newGifts.title === "" || newGifts.description === "" || newGifts.skillLevel === "" || newGifts.price === "" || newGifts.supplies.length === 0 || newGifts.instructions.length === 0 || newGifts.imageUrl === "") {
+      toast.error("Please fill up all fields");
       return;
     } else {
       newGifts["supplies"] = newGifts["supplies"].split("\n");
@@ -173,14 +172,14 @@ function Forms() {
         containerClassName=""
         containerStyle={{}}
         toastOptions={{
-          // Define default options
+          
           className: "",
           duration: 5000,
           style: {
             background: "#363636",
             color: "#fff",
           },
-          // Default options for specific types
+          
           success: {
             duration: 3000,
             theme: {
