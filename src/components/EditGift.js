@@ -29,7 +29,7 @@ function EditGift() {
           `https://ironrest.herokuapp.com/gift/${params.id}`
         );
         delete response.data._id;
-        setnewGifts({ ...response.data });
+        setnewGifts({ ...response.data, supplies: response.data.supplies.toString().replace(/,/gm,"\n"), instructions: response.data.instructions.toString().replace(/,/gm,"\n") });
       } catch (err) {
         console.error(err);
       }
@@ -47,8 +47,10 @@ function EditGift() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // newGifts["supplies"] = newGifts["supplies"].split("\n");
-    // newGifts["instructions"] = newGifts["instructions"].split("\n");
+    setnewGifts({...newGifts, supplies: [...newGifts.supplies], instructions: [...newGifts.instructions]});
+
+    newGifts["supplies"] = newGifts["supplies"].split("\n");
+    newGifts["instructions"] = newGifts["instructions"].split("\n");
 
     try {
       await axios.put(`https://ironrest.herokuapp.com/gift/${params.id}`, newGifts);
@@ -57,6 +59,7 @@ function EditGift() {
       console.error(error.response.data);
     }
   }
+
 
   return (
     <div>

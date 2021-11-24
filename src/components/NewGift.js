@@ -28,6 +28,9 @@ function Forms() {
   async function handleSubmit(event) {
     event.preventDefault();
 
+    setnewGifts({ ...newGifts, supplies: [...newGifts.supplies], instructions: [...newGifts.instructions] });
+
+
     newGifts["supplies"] = newGifts["supplies"].split("\n");
     newGifts["instructions"] = newGifts["instructions"].split("\n");
 
@@ -44,7 +47,6 @@ function Forms() {
       <Navbar />
 
       <div className="boxForm mt-5">
-
         <div id="newgift-img">
           <div className="newgift-black-line"> </div>
           <img className="img" src={newGiftImg} alt="new-gift" />
