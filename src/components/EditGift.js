@@ -76,7 +76,7 @@ function EditGift() {
         </div>
 
         <form className="forms">
-          <h1 className="mt-5 mb-4">New Gift</h1>
+          <h1 className="mt-5 mb-4">Edit Gift</h1>
           <input
             required
             id="title"
@@ -85,7 +85,7 @@ function EditGift() {
             onChange={handleChange}
             name="title"
             placeholder="Title"
-            maxLength="20"
+            maxLength="25"
           />
 
           <input
@@ -95,8 +95,8 @@ function EditGift() {
             type="text "
             onChange={handleChange}
             name="description"
-            placeholder="Description"
-            maxLength="70"
+            placeholder="Brief Description"
+            maxLength="80"
           />
 
           <select
@@ -170,7 +170,7 @@ function EditGift() {
             type="submit"
             onClick={handleSubmit}
           >
-            Add new gift
+            add changes
           </button>
         </form>
       </div>

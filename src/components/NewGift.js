@@ -77,7 +77,7 @@ function Forms() {
             onChange={handleChange}
             name="title"
             placeholder="Title"
-            maxLength="20"
+            maxLength="25"
           />
 
           <input
@@ -87,8 +87,8 @@ function Forms() {
             type="text "
             onChange={handleChange}
             name="description"
-            placeholder="Description"
-            maxLength="70"
+            placeholder="Brief Description"
+            maxLength="80"
           />
 
           <select
