@@ -5,6 +5,7 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
 import redLineImg from "./assets/red-line.png";
+import toast, { Toaster } from "react-hot-toast";
 
 function Forms() {
   const navigate = useNavigate();
@@ -28,11 +29,22 @@ function Forms() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    setnewGifts({ ...newGifts, supplies: [...newGifts.supplies], instructions: [...newGifts.instructions] });
+    setnewGifts({
+      ...newGifts,
+      supplies: [...newGifts.supplies],
+      instructions: [...newGifts.instructions],
+    });
+
+    if (newGifts.supplies.length === 0 || newGifts.instructions.length === 0) {
+      toast.error("Please fill up supplies and instructions field");
+      console.log("caiu no if");
+      return;
+    } else {
+      newGifts["supplies"] = newGifts["supplies"].split("\n");
+      newGifts["instructions"] = newGifts["instructions"].split("\n");
+    }
 
 
-    newGifts["supplies"] = newGifts["supplies"].split("\n");
-    newGifts["instructions"] = newGifts["instructions"].split("\n");
 
     try {
       await axios.post("https://ironrest.herokuapp.com/gift", newGifts);
@@ -156,6 +168,30 @@ function Forms() {
           </button>
         </form>
       </div>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+        }}
+      />
     </div>
   );
 }

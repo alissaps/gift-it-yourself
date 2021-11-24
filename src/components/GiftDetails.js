@@ -33,7 +33,7 @@ useEffect(() => {
     }
 
     fetchGift ()
-    }, [])
+    }, [params.id])
 
     async function handleDelete(id) {
         try {
