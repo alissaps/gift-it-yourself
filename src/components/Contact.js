@@ -11,7 +11,7 @@ function Contact() {
   return (
     <>
       <Navbar />
-      <h1 className="mt-5 mb-4">Contact Us</h1>
+      <h1 className=" mt-5 mb-4">Contact Us</h1>
       <p style={{width: "800px"}} className="mx-auto mb-5 mt-5 gift-text-description">Gift It Yourself is a web application built using React JS, Router-Dom, and Axios. It was made as the second project of Ironhack's Bootcamp of Web Development.</p>
       <div className="contact-container">
         <section id="first-contact" className="contact-section">

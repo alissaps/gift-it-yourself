@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
 import redLineImg from "./assets/red-line.png";
 import toast, { Toaster } from "react-hot-toast";
-
+ 
 function Forms() {
   const navigate = useNavigate();
   const [newGifts, setnewGifts] = useState({

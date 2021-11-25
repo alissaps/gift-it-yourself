@@ -12,7 +12,7 @@
   justify-content: center;
   width: 400px;
   align-items: center;
-  }
+  } 
 
 .forms input,
 textarea,
@@ -29,6 +29,7 @@ select {
 
 #newgift-img {
   position: relative;
+  height: 435.2px;
 }
 
 .newgift-black-line {

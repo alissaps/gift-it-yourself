@@ -17,18 +17,6 @@
   position: relative;
 }
 
-h1 {
-  font-size: 5rem;
-  font-family: "Abril Fatface", cursive;
-  line-height: 1;
-  position: relative;
-}
-
-.red-text {
-  font-size: 7rem;
-  color: #c61b0d;
-}
-
 .random-img {
   width: 290px;
   position: relative;

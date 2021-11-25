@@ -4,10 +4,7 @@ import "./HomePage.css";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
-
 function HomePage() {
-
-
   return (
     <>
       <>
@@ -31,29 +28,26 @@ function HomePage() {
             <Link to="/giftslist">
               <button
                 type="button"
-                className="text btn-effect btn btn-dark rounded-pill"
+                className="home-button text btn-effect btn btn-dark rounded-pill"
               >
                 click here
               </button>
             </Link>
           </section>
-                    
-          <section
-            
-            id="main-img"
-            
-          >
+
+          <section id="main-img">
             <div className="black-line"></div>
-            <img className="img" src={homepageImg} alt="gift-wrapped" />
+            <div className="margin">
+              <img className="img" src={homepageImg} alt="gift-wrapped" />
+            </div>
             <img
-              className="red-line image-position"
+              className="red-line-none red-line image-position"
               src={redLineImg}
               alt="red line"
             />
           </section>
         </main>
       </>
-      
     </>
   );
 }
