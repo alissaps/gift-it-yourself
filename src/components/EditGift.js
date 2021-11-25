@@ -200,7 +200,7 @@ function EditGift() {
             type="text"
             onChange={handleChange}
             name="imageUrl"
-            placeholder="Image"
+            placeholder="Image URL"
           />
 
           <button

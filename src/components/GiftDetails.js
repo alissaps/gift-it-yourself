@@ -9,94 +9,113 @@ import "./GiftDetails.css";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
-
 function GiftDetails() {
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const [giftData, setGiftData] = useState({
-    "_id": "",
-    "title": "",
-    "description": "",
-    "skillLevel": "",
-    "price": "",
-    "supplies": [],
-    "instructions": [],
-    "imageUrl": "",
-    "video": ""
+    _id: "",
+    title: "",
+    description: "",
+    skillLevel: "",
+    price: "",
+    supplies: [],
+    instructions: [],
+    imageUrl: "",
+    video: "",
   });
   const params = useParams();
 
-useEffect(() => {
-    async function fetchGift () {
-    try {
-    const response = await axios.get(`https://ironrest.herokuapp.com/gift/${params.id}`); 
-    setGiftData({...response.data})
-    setLoading(false);
-    } catch(err) {
-    console.log(err)}
+  useEffect(() => {
+    async function fetchGift() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/gift/${params.id}`
+        );
+        setGiftData({ ...response.data });
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     }
 
-    fetchGift ()
-    }, [params.id])
+    fetchGift();
+  }, [params.id]);
 
-    async function handleDelete(id) {
-        try {
-          await axios.delete(`https://ironrest.herokuapp.com/gift/${id}`);
-          navigate("/giftslist");
-        } catch (err) {
-          console.error(err);
-        }
-      }
-
+  async function handleDelete(id) {
+    try {
+      await axios.delete(`https://ironrest.herokuapp.com/gift/${id}`);
+      navigate("/giftslist");
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <>
-    {loading ? <Loading/> : (
-      <>
-      <Navbar />
-      <main className="mt-5 gift-container">
-        <div className="icons">
-        <Link to={`/editgift/${giftData._id}`}>
-          <img type="button" src={editImg} alt="edit" />
-        </Link>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Navbar />
+          <main className="mt-5 gift-container">
+            <div className="icons">
+              <Link className="edit-icon" to={`/editgift/${giftData._id}`}>
+                <img type="button" src={editImg} alt="edit" />
+              </Link>
 
-        <Link to={`/editgift/${giftData._id}`}>
-          <img type="button" onClick={() => handleDelete(giftData._id)} src={deleteImg} alt="delete" />
-        </Link>
-        </div>
+              <Link to={`/editgift/${giftData._id}`}>
+                <img className="delete-icon"
+                  type="button"
+                  onClick={() => handleDelete(giftData._id)}
+                  src={deleteImg}
+                  alt="delete"
+                />
+              </Link>
+            </div>
 
-        <section className="mt-5 d-flex align-items-center flex-column" id="gift-detail">
-          <img src={giftData.imageUrl} alt="gift" />
-          <h2 className="mt-4">{giftData.title}</h2>
-          <p className="mt-4 gift-text-description">
-          {giftData.description}
-          </p>
-        </section>
+            <section
+              className="mt-5 d-flex align-items-center flex-column"
+              id="gift-detail"
+            >
+              <img src={giftData.imageUrl} alt="gift" />
+              <h2 className="mt-4">{giftData.title}</h2>
+              <p className="mt-4 gift-text-description">
+                {giftData.description}
+              </p>
+            </section>
 
-        <hr />
+            <hr />
 
-        <section id="supplies-container">
-          <h3>Supplies</h3>
-          <ul>
-          {giftData.supplies.map((currentSupply, index) => {
-              return <li key={index} className="mt-4 text-description">{currentSupply}</li>
-          })}
-         </ul>
-        </section>
+            <section id="supplies-container">
+              <h3>Supplies</h3>
+              <ul>
+                {giftData.supplies.map((currentSupply, index) => {
+                  return (
+                    <li key={index} className="mt-4 text-description">
+                      {currentSupply}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
 
-        <hr />
+            <hr />
 
-        <section className="mb-5" id="instructions-container">
-          <h3>Instructions</h3>
-          <ol>
-          {giftData.instructions.map((currentInstruction, index) => {
-              return <li key={index} className="mt-4 text-description">{currentInstruction}</li>
-          })}
-         </ol>
-        </section>
-      </main>
-    </>
-    )}
+            <section className="mb-5" id="instructions-container">
+              <h3>Instructions</h3>
+              <ol>
+                {giftData.instructions.map((currentInstruction, index) => {
+                  return (
+                    <li key={index} className="mt-4 text-description">
+                      {currentInstruction}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          </main>
+        </>
+      )}
     </>
   );
 }

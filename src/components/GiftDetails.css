@@ -15,6 +15,11 @@
 .icons img {
     width: 30px;
     margin: 0 7px;
+} 
+
+.icons img:hover {
+    box-shadow: 5px 5px 10px rgb(210, 210, 210);
+    transform: rotate(2deg)
 }
 
 #gift-detail, #gift-detail img {
@@ -59,4 +64,8 @@ h3 {
 
 #instructions-container li {
     list-style: decimal;
+}
+
+.edit-icon:hover {
+    box-shadow: 10px;
 }
