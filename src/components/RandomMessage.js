@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 import redLineImg from "./assets/red-line.png";
 import randomImg from "./assets/message-img.jpeg";
 import "./RandomMessage.css";
 import Navbar from "./Navbar";
 import axios from "axios";
 
-
 function RandomMessage() {
   const [messageData, setMessageData] = useState([]);
   const [click, setClick] = useState(false);
   const [currentMessage, setCurrentMessage] = useState("");
-
-
+ 
   useEffect(() => {
     axios
       .get(`https://ironrest.herokuapp.com/random-message`)
       .then((response) => {
         setMessageData([...response.data]);
-       
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +35,7 @@ function RandomMessage() {
     <>
       <Navbar />
       <div className="random">
-        <section id="main-img">
+        <section className="main-img">
           <div className="random-black-line"></div>
           <img className="random-img" src={randomImg} alt="gift-wrapped" />
           <img
@@ -49,7 +45,7 @@ function RandomMessage() {
           />
         </section>
 
-        <section id="main-text">
+        <section className="main-text">
           <img
             className="red-line random-text-position"
             src={redLineImg}

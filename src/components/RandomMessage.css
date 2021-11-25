@@ -12,7 +12,7 @@
   justify-content: space-evenly;
 }
 
-#main-text {
+.main-text {
   width: 400px;
   position: relative;
 }
@@ -34,8 +34,9 @@ h1 {
   position: relative;
 }
 
-#main-img {
+.main-img {
   position: relative;
+  height: 435.2px;
 }
 
 .random-black-line {

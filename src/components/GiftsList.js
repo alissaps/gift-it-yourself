@@ -38,6 +38,7 @@ function GiftsList() {
                     className="content-img"
                     src={currentGift.imageUrl}
                     alt="Current Gift"
+                    onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/996/notfound.png"}}
                   />
                   </Link>
                   <div className="content-text">

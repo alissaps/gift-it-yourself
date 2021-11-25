@@ -77,7 +77,7 @@ function GiftDetails() {
               className="mt-5 d-flex align-items-center flex-column"
               id="gift-detail"
             >
-              <img src={giftData.imageUrl} alt="gift" />
+              <img src={giftData.imageUrl} alt="gift" onError={(e)=>{e.target.onerror = null; e.target.src="https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/996/notfound.png"}}/>
               <h2 className="mt-4">{giftData.title}</h2>
               <p className="mt-4 gift-text-description">
                 {giftData.description}

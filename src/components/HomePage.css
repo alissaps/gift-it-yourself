@@ -10,8 +10,6 @@
   align-items: center;
   min-height: 80vh;
   justify-content: space-evenly;
-  /* width: 1500px;
-  margin: 0 auto; */
 }
 
 #main-text {
@@ -31,7 +29,6 @@ h1 {
   color: #c61b0d;
 }
 
-
 .img {
   width: 290px;
   position: relative;
@@ -39,6 +36,7 @@ h1 {
 
 #main-img {
   position: relative;
+  height: 387px;
 }
 
 .black-line {
