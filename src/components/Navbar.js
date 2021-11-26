@@ -16,7 +16,7 @@ function Navbar() {
             <Link to="/giftslist">Gifts</Link>
           </li>
           <li>
-            <Link to="/newgifts">New Gifts</Link>
+            <Link to="/newgifts">New Gift</Link>
           </li>
           <li>
             <Link to="/random">Random message</Link>
