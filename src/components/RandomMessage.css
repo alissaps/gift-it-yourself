@@ -57,14 +57,29 @@
 }
 
 .random-image-position {
-    bottom: -24px;
-    transform: rotate(90deg);
-    left: -25px;
+    bottom: -65px;
+    transform: rotate(160deg);
+    left: -49px;
 }
 
 .cursive {
   font-family: 'Handlee', cursive;
   font-size: 2.9rem;
   text-align:center;
-  
+}
+
+.small-red-text {
+  font-size: 7rem;
+  color: #c61b0d;
+}
+
+.random-text-position {
+  top: -66px;
+  right: 21px;
+  z-index: -1;
+}
+
+.random-line-position {
+  top: -68px;
+  right: 10px;
 }

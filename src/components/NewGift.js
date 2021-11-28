@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import newGiftImg from "./assets/newgift-image.jpeg";
-import redLineImg from "./assets/red-line.png";
 import toast, { Toaster } from "react-hot-toast";
  
 function Forms() {
@@ -76,13 +75,13 @@ function Forms() {
 
       <div className="boxForm mt-5">
         <div id="newgift-img">
-          <div className="newgift-black-line"> </div>
+          {/* <div className="newgift-black-line"> </div> */}
           <img className="img" src={newGiftImg} alt="new-gift" />
-          <img
+          {/* <img
             className="red-line form-image-position"
             alt="redline"
             src={redLineImg}
-          />
+          /> */}
         </div>
  
         <form className="forms">

@@ -18,20 +18,42 @@
 }
  
 h1 {
-  font-size: 5rem;
+  font-size: 5.4rem;
+  font-family: "Abril Fatface", cursive;
+  line-height: 1;
+  position: relative;
+}
+
+.headline {
+  font-size: 7rem;
   font-family: "Abril Fatface", cursive;
   line-height: 1;
   position: relative;
 }
 
 .red-text {
-  font-size: 7rem;
+  font-size: 9rem;
   color: #c61b0d;
 }
 
 .img {
   width: 290px;
   position: relative;
+}
+
+.stroke {
+  position: absolute;
+  width: 370px;
+}
+
+.curve-line {
+  position: absolute;
+  width: 150px;
+}
+
+.line-position {
+  top: -28px;
+  left: 22px;
 }
 
 #main-img {
@@ -59,18 +81,18 @@ h1 {
 }
 
 .red-line {
-    width: 80px;
-    transform: rotate(95deg);
+    width: 60px;
+    transform: rotate(-5deg);
     position: absolute;
 }
 
 .text-position {
-    top: -14px;
-    right: -37px;
+    top: -15px;
+    right: 21px;
 }
 
 .image-position {
-    bottom: -24px;
+    top: -60px;
     transform: rotate(0deg);
-    right: -25px;
+    right: -56px;
 }
