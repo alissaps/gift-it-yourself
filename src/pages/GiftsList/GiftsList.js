@@ -2,23 +2,27 @@ import "./GiftsList.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Loading from "./Loading";
+import Navbar from "../../components/Navbar/Navbar";
+import Loading from "../../components/Loading";
 
 function GiftsList() {
   const [gift, setGift] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://ironrest.herokuapp.com/gift")
-      .then((response) => {
+    async function fetchGift() {
+      try {
+        const response = await axios.get(
+          "https://ironrest.herokuapp.com/gift"
+        );
         setGift([...response.data]);
         setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+
+    fetchGift();
   }, []);
 
   return (

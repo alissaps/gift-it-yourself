@@ -2,12 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "./Navbar";
-import deleteImg from "./assets/delete-icon.png";
-import editImg from "./assets/edit-icon.png";
+import Navbar from "../../components/Navbar/Navbar";
+import deleteImg from "../../components/assets/delete-icon.png";
+import editImg from "../../components/assets/edit-icon.png";
 import "./GiftDetails.css";
 import { Link } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "../../components/Loading";
 
 function GiftDetails() {
   const navigate = useNavigate();

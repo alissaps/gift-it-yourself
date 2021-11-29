@@ -1,9 +1,9 @@
-import homepageImg from "./assets/homepage.jpeg";
-import redLinesImg from "./assets/red-lines1.png";
-import strokeImg from "./assets/stroke2.png";
-import curveImg from "./assets/curve-line.png";
+import homepageImg from "../../components/assets/homepage.jpeg";
+import redLinesImg from "../../components/assets/red-lines1.png";
+import strokeImg from "../../components/assets/stroke2.png";
+import curveImg from "../../components/assets/curve-line.png";
 import "./HomePage.css";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 function HomePage() {

@@ -1,9 +1,9 @@
-import Navbar from "./Navbar";
-import githubImg from "./assets/github-icon.png";
-import linkedinImg from "./assets/linkedin-icon.png";
-import emailImg from "./assets/email-icon.png";
-import alissaImg from "./assets/alissa-foto.jpeg";
-import edgarImg from "./assets/edgar-foto.jpeg";
+import Navbar from "../../components/Navbar/Navbar";
+import githubImg from "../../components/assets/github-icon.png";
+import linkedinImg from "../../components/assets/linkedin-icon.png";
+import emailImg from "../../components/assets/email-icon.png";
+import alissaImg from "../../components/assets/alissa-foto.jpeg";
+import edgarImg from "../../components/assets/edgar-foto.jpeg";
 import "./Contact.css";
 import { ExternalLink } from "react-external-link";
 

@@ -1,12 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './HomePage';
-import GiftsList from './GiftsList';
-import RandomMessage from './RandomMessage';
-import NewGift from "./NewGift";
-import Contact from './Contact';
-import GiftDetails from './GiftDetails';
-import EditGift from './EditGift';
+import HomePage from '../pages/HomePage/HomePage';
+import GiftsList from '../pages/GiftsList/GiftsList';
+import RandomMessage from '../pages/RandomMessage/RandomMessage';
+import NewGift from "../pages/Form/NewGift";
+import Contact from '../pages/Contact/Contact';
+import GiftDetails from '../pages/GiftDetails/GiftDetails';
+import EditGift from '../pages/Form/EditGift';
 
 
 

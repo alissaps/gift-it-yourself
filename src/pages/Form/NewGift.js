@@ -1,18 +1,14 @@
 import "./NewGift.css";
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "./Navbar";
-import newGiftImg from "./assets/newgift-image.jpeg";
-import redLineImg from "./assets/red-line.png";
+import Navbar from "../../components/Navbar/Navbar";
+import newGiftImg from "../../components/assets/newgift-image.jpeg";
 import toast, { Toaster } from "react-hot-toast";
-
-function EditGift() {
+ 
+function Forms() {
   const navigate = useNavigate();
-  const params = useParams();
-
   const [newGifts, setnewGifts] = useState({
-    _id: "",
     title: "",
     description: "",
     skillLevel: "",
@@ -20,29 +16,7 @@ function EditGift() {
     supplies: [],
     instructions: [],
     imageUrl: "",
-    video: "",
   });
-
-  useEffect(() => {
-    async function fetchGift() {
-      try {
-        const response = await axios.get(
-          `https://ironrest.herokuapp.com/gift/${params.id}`
-        );
-        delete response.data._id;
-        setnewGifts({
-          ...response.data,
-          supplies: response.data.supplies.toString().replace(/,/gm, "\n"),
-          instructions: response.data.instructions
-            .toString()
-            .replace(/,/gm, "\n"),
-        });
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    fetchGift();
-  }, [params.id]);
 
   function handleChange(event) {
     setnewGifts({
@@ -65,8 +39,8 @@ function EditGift() {
       newGifts.description === "" ||
       newGifts.skillLevel === "" ||
       newGifts.price === "" ||
-      newGifts.supplies === "" ||
-      newGifts.instructions === "" ||
+      newGifts.supplies.length === 0 ||
+      newGifts.instructions.length === 0 ||
       newGifts.imageUrl === ""
     ) {
       toast.error("Please fill up all fields");
@@ -86,14 +60,10 @@ function EditGift() {
         newGifts.instructions !== "" &&
         newGifts.imageUrl !== ""
       ) {
-        await axios.put(
-          `https://ironrest.herokuapp.com/gift/${params.id}`,
-          newGifts
+        await axios.post("https://ironrest.herokuapp.com/gift", newGifts
         );
         navigate("/giftslist");
       }
-
-
     } catch (error) {
       console.error(error.response.data);
     }
@@ -102,19 +72,20 @@ function EditGift() {
   return (
     <div className="mb-5">
       <Navbar />
+
       <div className="boxForm mt-5">
         <div id="newgift-img">
-          <div className="newgift-black-line"> </div>
+          {/* <div className="newgift-black-line"> </div> */}
           <img className="img" src={newGiftImg} alt="new-gift" />
-          <img
+          {/* <img
             className="red-line form-image-position"
             alt="redline"
             src={redLineImg}
-          />
+          /> */}
         </div>
-
+ 
         <form className="forms">
-          <h1 className="mt-5 mb-4">Edit Gift</h1>
+          <h1 className="mt-5 mb-4">New Gift</h1>
           <input
             required
             id="title"
@@ -208,7 +179,7 @@ function EditGift() {
             type="submit"
             onClick={handleSubmit}
           >
-            add changes
+            add new gift
           </button>
         </form>
       </div>
@@ -239,4 +210,4 @@ function EditGift() {
   );
 }
 
-export default EditGift;
+export default Forms;

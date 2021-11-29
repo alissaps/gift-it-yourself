@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import redLineImg from "./assets/red-lines1.png";
-import randomImg from "./assets/message-img.jpeg";
-import curveImg from "./assets/curve-line.png";
-import strokeImg from "./assets/stroke2.png";
+import redLineImg from "../../components/assets/red-lines1.png";
+import randomImg from "../../components/assets/message-img.jpeg";
+import curveImg from "../../components/assets/curve-line.png";
+import strokeImg from "../../components/assets/stroke2.png";
 import "./RandomMessage.css";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
 function RandomMessage() {
